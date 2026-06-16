@@ -1,6 +1,6 @@
 const express = require('express');
 
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT ?? 8000;
 
 const app = express();
 
@@ -11,12 +11,10 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/health', (req, res) => {
+  res.json({ message: 'I am healthy' });
+});
+
 app.listen(PORT, () => {
   console.log('The app is running on port', PORT);
 });
-
-/*
-Things required to run this application
-    Node: v20.11.1
-    npm installed: 9.4.0
-*/
